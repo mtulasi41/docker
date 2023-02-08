@@ -1,6 +1,5 @@
-FROM centos:7
-MAINTAINER The centos project
-RUN apt install nginx
+FROM ubuntu:latest
+RUN apt update && apt install nginx -y
 COPY index.html /var/www/html
 EXPOSE 80
-CMD /usr/sbin/nginx -D FOREGROUND
+CMD ["nginx","-g","daemon off;"]
